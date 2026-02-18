@@ -1,0 +1,60 @@
+<div class="login-container">
+
+  <div class="login-card">
+    <!-- Header -->
+    <div class="login-header">
+      <div class="logo">
+        <img src="assets/images/lab.jpg" alt="4C Lab Manager Logo" class="logo-image" />
+      </div>
+      <h1>4C Lab Manager </h1>
+      <p class="subtitle">Connexion à votre espace</p>
+    </div>
+   
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="login-form">
+      <!-- Role Tabs -->
+      <div class="role-tabs" role="tablist">
+        <button type="button" class="tab" [class.active]="loginForm.value.role === 'apprenant'" (click)="loginForm.controls['role'].setValue('apprenant')">Apprenant</button>
+        <button type="button" class="tab" [class.active]="loginForm.value.role === 'formateur'" (click)="loginForm.controls['role'].setValue('formateur')">Formateur</button>
+        <button type="button" class="tab" [class.active]="loginForm.value.role === 'admin'" (click)="loginForm.controls['role'].setValue('admin')">Admin</button>
+        <button type="button" class="tab" [class.active]="loginForm.value.role === 'superadmin'" (click)="loginForm.controls['role'].setValue('superadmin')">Super Admin</button>
+      </div>
+
+      <!-- Email Field -->
+      <div class="form-row">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" type="email" formControlName="email" class="form-control" placeholder="votre.email@4clab.tn" />
+        <div *ngIf="isFieldInvalid('email')" class="error-message">Email invalide</div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-row">
+        <label for="password" class="form-label">Mot de passe</label>
+        <div class="password-wrapper">
+          <input id="password" [type]="showPassword ? 'text' : 'password'" formControlName="password" class="form-control" placeholder="Entrez votre mot de passe" />
+          <button type="button" class="toggle-password" (click)="togglePasswordVisibility()" aria-label="Toggle password">⊙</button>
+        </div>
+        <a class="forgot-link" href="/forgot-password">Mot de passe oublié ?</a>
+      </div>
+      
+      <!-- Login Button -->
+      <button type="submit" class="btn btn-primary" [disabled]="isLoading || loginForm.invalid">
+        {{ isLoading ? 'Connexion...' : 'Se connecter' }}
+      </button>
+
+      <!-- Messages -->
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+    </form>
+
+    <!-- Footer Links -->
+    <div class="login-footer">
+      <p class="help-text">Besoin d'aide ? <a href="/contact" class="contact-link">Contactez-nous</a></p>
+    </div>
+  </div>
+</div>
