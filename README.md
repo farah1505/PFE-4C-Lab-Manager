@@ -1,3 +1,4 @@
+ HEAD
 # 🎓 4C Lab Manager
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
@@ -57,3 +58,29 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+# PFE-4C-Lab-Manager
+projet pfe 
+ 9c9614f5f505da00522797c2ae8bc32f93e08042
+# 🎓 4C Lab Manager
+
+PFE Project - 4C Lab Management System
+
+This project was generated using Angular CLI.
+
+## Development server
+
+Run:
+
+ng serve
+
+Then open:
+http://localhost:4200/
+
+## Build
+
+ng build
+
+## Test
+
+ng test
